@@ -33,4 +33,7 @@ mybatis:
 feign:
   hystrix:
     enabled: true
+user:
+  default:
+    fileds: wo are arvatosystem
 
