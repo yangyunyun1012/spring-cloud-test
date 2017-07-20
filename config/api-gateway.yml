@@ -1,0 +1,21 @@
+server:
+  port: 5555   # 注册服务的端口号sssssss
+spring:
+  application:
+    name: api-gateway
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:1111/eureka/
+  instance:
+    preferIpAddress: true
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+
+zuul:
+  routes:
+    user:
+      path: /user-center/**
+      serviceId: user-center
+    order:
+      path: /order-center/**
+      serviceId: order-center
