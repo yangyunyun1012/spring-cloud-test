@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.arvatosystem.web.mapper.OrderMapper">
+
+    <select id="findAllOrder" resultType="java.util.Map">
+        select order_id orderId,DATE_FORMAT(create_time,'%Y-%c-%d %H:%i:%s') createTime,order_desc orderDesc from orderinfo order by create_time desc
+    </select>
+
+    <select id="findOrderByUser" parameterType="java.lang.Integer" resultType="Order">
+        select order_id orderId,DATE_FORMAT(create_time,'%Y-%c-%d %H:%i:%s') createTime,order_desc orderDesc from orderinfo where user_id=#{userId}
+    </select>
+
+</mapper>
